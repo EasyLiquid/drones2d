@@ -1,0 +1,34 @@
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+
+// сериализация
+passport.serializeUser((user, done) => {
+	console.log('Сериализация: ' + user);
+	done(null, user.id);
+});
+
+// десериализация
+passport.deserializeUser((id, done) => {
+	console.log('Десериализация: ' + user.id);
+	const user = (user.id === 1) ? user : false;
+	done(null, user);
+});
+
+// стратегия аутентификации
+passport.use(
+	new LocalStrategy({
+			usernameField: 'email',
+			passwordField: 'password'
+		}, (email, password, done) => {
+		if (email != 'easy_liquid@mail.ru') {
+            return done(null, false, {message: 'Неверный логин.'});
+        };
+        if (password != '123') {
+            return done(null, false, {message: 'Неверный пароль.'});
+        }
+        var user = {id: 1, email: 'easy_liquid@mail.ru'};
+        return done(null, user);
+	})
+);
+
+module.exports.passport = passport;

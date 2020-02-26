@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Drones</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			canvas {
+				border: 1px solid black;
+				position: absolute;
+				top: 0px;
+			}
+			
+			#console {
+				position: absolute;
+				left: 825px;
+				top: 10px;
+			}
+			
+			#chat {
+				position: absolute;
+				left: 825px;
+				top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="console">
+			<div id="ping"></div>
+			<div>
+				<br>Движение: W, A, S, D
+				<br>Действие: Space
+			</div>
+		</div>
+		
+		<div id="chat">Чат: <div id="messages"></div>
+			<br><textarea style="width:150px; height:50px" id="field_message"></textarea>
+			<br><button onclick="sendMessage()">Отправить</button>
+		</div>
+		
+		<br><canvas id="canvas"></canvas>
+		<br><div hidden="true" id="title1"><center><h1>Победила команда синих!</h1></center></div>
+		<br><div hidden="true" id="title2"><center><h1>Победила команда красных!</h1></center></div>
+		
+		<script src="public/game.js"></script>
+	</body>
+</html>
